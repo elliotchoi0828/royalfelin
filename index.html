@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Felin: Palin Heritage Hub</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Noto Sans KR & Playfair Display for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royalBlue: '#002D62',
+                        royalDark: '#0A192F',
+                        royalCrimson: '#E21B23',
+                        royalGold: '#C5A059',
+                        royalGoldLight: '#E5C483',
+                        creamPaper: '#FAF8F5'
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans KR', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Premium custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF8F5;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 3px;
+        }
+        
+        /* Shimmer effect for premium card elements */
+        .shimmer {
+            background: linear-gradient(90deg, rgba(197,160,89,0.1) 25%, rgba(197,160,89,0.2) 50%, rgba(197,160,89,0.1) 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 2.5s infinite;
+        }
+        @keyframes loading-shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Pulsing light indicator */
+        .pulse-gold {
+            animation: pulse-gold-glow 2s infinite;
+        }
+        @keyframes pulse-gold-glow {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        
+        /* Interactive receipt style dashed borders */
+        .dashed-border {
+            background-image: linear-gradient(to right, #002D62 50%, rgba(255,255,255,0) 0%);
+            background-position: bottom;
+            background-size: 15px 2px;
+            background-repeat: repeat-x;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 font-sans text-slate-800 min-h-screen flex items-center justify-center p-0 md:p-6">
+
+    <!-- Mockup Mobile Device Wrapper (Best for Demonstrating WebView / Kakao) -->
+    <div class="relative w-full max-w-[440px] h-[900px] md:h-[840px] bg-creamPaper md:rounded-[40px] md:shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col border-[6px] border-slate-950">
+        
+        <!-- Status Bar (Realistic Phone UI) -->
+        <div class="bg-royalDark text-white/90 text-xs px-6 py-2.5 flex justify-between items-center z-50 select-none">
+            <span class="font-bold">10:57</span>
+            <div class="flex items-center gap-1.5">
+                <span class="text-[10px] bg-royalCrimson/90 px-1 py-0.5 rounded font-black text-white mr-1">ROYAL FELIN WebView</span>
+                <i class="fa-solid fa-signal"></i>
+                <i class="fa-solid fa-wifi"></i>
+                <i class="fa-solid fa-battery-full"></i>
+            </div>
+        </div>
+
+        <!-- Premium Navigation Header (Sub-branded with Crown Logo) -->
+        <header class="bg-royalBlue text-white px-5 py-3 flex items-center justify-between shadow-md relative z-40">
+            <div class="flex items-center gap-2">
+                <div class="flex flex-col items-start leading-none">
+                    <!-- Crown SVG instead of ROYAL CANIN text -->
+                    <svg class="w-6 h-5 text-royalGold mb-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M2 19h20v2H2v-2zm1-2h18L19 7l-4 4-3-6-3 6-4-4-3 10z"/>
+                    </svg>
+                    <span class="font-serif text-sm font-bold tracking-tight text-royalGold">Royal Felin</span>
+                </div>
+            </div>
+            
+            <!-- Quick Active Badge -->
+            <div class="flex items-center gap-1 bg-royalDark/50 border border-royalGold/30 px-2.5 py-1 rounded-full">
+                <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full pulse-gold"></span>
+                <span id="header-badge" class="text-[10px] text-royalGold font-bold">백작</span>
+            </div>
+        </header>
+
+        <!-- Main Interactive Content Frame -->
+        <main class="flex-1 overflow-y-auto pb-24 relative" id="content-container">
+            
+            <!-- STEP 1: Quick onboarding cat profile selector/creator -->
+            <section id="profile-banner" class="bg-gradient-to-b from-royalDark to-royalBlue text-white p-4 pb-6 rounded-b-[24px] shadow-lg mb-4">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <img id="cat-avatar" class="w-12 h-12 rounded-full border-2 border-royalGold object-cover" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200" alt="고양이 사진">
+                            <span id="rank-emoji" class="absolute -bottom-1 -right-1 text-sm bg-royalDark p-0.5 rounded-full">👑</span>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5">
+                                <h4 id="profile-name-display" class="font-bold text-base">코코</h4>
+                                <span class="text-[10px] bg-royalGold/30 text-royalGoldLight border border-royalGold/40 px-1.5 py-0.2 rounded" id="profile-breed-display">러시안 블루</span>
+                            </div>
+                            <p class="text-xs text-white/75" id="profile-age-display">12년 차 베테랑 집사와 동행 중</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleProfileEditModal()" class="text-xs bg-white/10 hover:bg-white/20 border border-white/20 text-royalGoldLight px-2.5 py-1.5 rounded-full transition-all">
+                        <i class="fa-solid fa-pen-to-square mr-1"></i>정보수정
+                    </button>
+                </div>
+
+                <!-- Live Mini Stat Cards -->
+                <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl">
+                        <span class="text-white/60 block text-[10px]">현재 하사 작위</span>
+                        <span id="rank-title-display" class="font-bold text-royalGold">백작</span>
+                    </div>
+                    <div class="bg-white/5 border border-white/10 p-2.5 rounded-xl">
+                        <span class="text-white/60 block text-[10px]">오늘 적립한 케어 포인트</span>
+                        <span id="point-display" class="font-bold text-emerald-400">450 P</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= TAB CONTENT 1: 홈 (기존 AI 묘생 졸업앨범) ================= -->
+            <div id="tab-grad" class="tab-content px-4 space-y-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold font-sans">Aesthetic Archive</span>
+                        <span class="text-xs text-slate-400"><i class="fa-solid fa-image-portrait mr-1"></i>사진첩 연동</span>
+                    </div>
+                    <h3 class="font-sans text-lg font-bold text-royalBlue mb-1">4컷 AI 앨범 제작</h3>
+                    <p class="text-xs text-slate-500 mb-4">함께 쌓아온 추억을 아름다운 9:16 명작 숏폼으로 제작하세요.</p>
+
+                    <!-- Upload Slots -->
+                    <div class="grid grid-cols-4 gap-2 mb-4">
+                        <div class="relative aspect-square rounded-xl overflow-hidden border-2 border-dashed border-royalGold/40 bg-slate-50 flex flex-col items-center justify-center cursor-pointer group hover:bg-royalGold/5 transition-all">
+                            <img id="slot-0" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200" alt="아기 때">
+                            <span class="absolute bottom-1 left-1 right-1 text-center text-[9px] bg-black/60 text-white py-0.5 rounded">#첫만남</span>
+                        </div>
+                        <div class="relative aspect-square rounded-xl overflow-hidden border-2 border-dashed border-royalGold/40 bg-slate-50 flex flex-col items-center justify-center cursor-pointer group hover:bg-royalGold/5 transition-all">
+                            <img id="slot-1" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=200" alt="성장기">
+                            <span class="absolute bottom-1 left-1 right-1 text-center text-[9px] bg-black/60 text-white py-0.5 rounded">#첫장난감</span>
+                        </div>
+                        <div class="relative aspect-square rounded-xl overflow-hidden border-2 border-dashed border-royalGold/40 bg-slate-50 flex flex-col items-center justify-center cursor-pointer group hover:bg-royalGold/5 transition-all">
+                            <img id="slot-2" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=200" alt="행복한 시기">
+                            <span class="absolute bottom-1 left-1 right-1 text-center text-[9px] bg-black/60 text-white py-0.5 rounded">#첫여행</span>
+                        </div>
+                        <div class="relative aspect-square rounded-xl overflow-hidden border-2 border-dashed border-royalGold/40 bg-slate-50 flex flex-col items-center justify-center cursor-pointer group hover:bg-royalGold/5 transition-all">
+                            <img id="slot-3" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=200" alt="오늘">
+                            <span class="absolute bottom-1 left-1 right-1 text-center text-[9px] bg-black/60 text-white py-0.5 rounded">#눈부신오늘</span>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <button onclick="generateAIVideo()" class="w-full bg-royalBlue hover:bg-royalDark text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-magic-wand-sparkles text-royalGold"></i>
+                        <span>AI 연대기 숏폼 제작하기</span>
+                    </button>
+                </div>
+
+                <!-- Video player (Hidden by default, shown after generate) -->
+                <div id="video-display-area" class="hidden bg-royalDark rounded-2xl p-4 shadow-lg border border-royalGold/30 text-white">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2.5 h-2.5 bg-red-500 rounded-full animate-ping"></span>
+                            <span class="text-xs font-bold text-royalGold">LIVE PREVIEW</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-xs text-white/70">
+                            <i class="fa-solid fa-music text-royalGold animate-spin"></i>
+                            <span id="bgm-title">Classic Purr (Lullaby Ver.)</span>
+                        </div>
+                    </div>
+
+                    <!-- Vertical video representation -->
+                    <div class="relative aspect-[9/16] max-h-[380px] w-full rounded-xl overflow-hidden bg-black mx-auto border border-white/10 flex items-center justify-center shadow-inner">
+                        <img id="video-slide" class="w-full h-full object-cover transition-opacity duration-1000 ease-in-out" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=350" alt="Slideshow">
+                        
+                        <!-- Overlay Text -->
+                        <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 flex flex-col justify-between p-4 pointer-events-none">
+                            <div class="flex justify-between items-start">
+                                <div class="flex items-center gap-1.5">
+                                    <span class="text-[10px] bg-royalGold text-royalDark font-bold px-1.5 py-0.5 rounded-full">Evolution</span>
+                                    <span class="text-[10px] bg-white/20 text-white backdrop-blur-sm px-1.5 py-0.5 rounded-full font-sans" id="overlay-breed">러시안 블루</span>
+                                </div>
+                                <span class="text-xs font-sans text-royalGold font-bold" id="overlay-rank">백작</span>
+                            </div>
+                            
+                            <div class="space-y-1">
+                                <h5 class="text-lg font-bold text-white drop-shadow-md" id="overlay-name">코코</h5>
+                                <p class="text-xs text-royalGoldLight font-bold drop-shadow-md" id="video-caption">"나와 함께 추억이 완숙한 명작이 되는 순간"</p>
+                                <p class="text-[9px] text-white/50">Copyright © Royal Canin Corporation</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini BGM Wave Simulation -->
+                        <div class="absolute bottom-4 right-4 flex items-end gap-0.5 h-6">
+                            <span class="w-1 bg-royalGold animate-[pulse_1s_infinite_100ms] h-4 rounded-full"></span>
+                            <span class="w-1 bg-royalGold animate-[pulse_1s_infinite_300ms] h-6 rounded-full"></span>
+                            <span class="w-1 bg-royalGold animate-[pulse_1s_infinite_200ms] h-3 rounded-full"></span>
+                            <span class="w-1 bg-royalGold animate-[pulse_1s_infinite_400ms] h-5 rounded-full"></span>
+                        </div>
+                    </div>
+
+                    <!-- Share action group -->
+                    <div class="grid grid-cols-2 gap-2 mt-4">
+                        <button onclick="shareToInstagram()" class="bg-gradient-to-r from-purple-600 via-pink-600 to-yellow-500 hover:opacity-90 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
+                            <i class="fa-brands fa-instagram text-base"></i>
+                            인스타 릴스 공유
+                        </button>
+                        <button onclick="shareToKakao()" class="bg-[#FEE500] text-black font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 hover:opacity-90 transition-all">
+                            <i class="fa-solid fa-comment text-base"></i>
+                            단반 카톡 친구 자랑
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB CONTENT 2: 7초 관계로그 ================= -->
+            <div id="tab-log" class="tab-content px-4 hidden space-y-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold">Relation & Touch</span>
+                    <h3 class="font-sans text-lg font-bold text-royalBlue mt-2 mb-1">팰린 7초 관계로그</h3>
+                    <p class="text-xs text-slate-500 mb-4">감성 넘치는 7초 체크로 고양이와 교감하고, 건강 스코어를 확보하세요.</p>
+                    
+                    <!-- Checklist -->
+                    <div id="log-checklist" class="space-y-3">
+                        <!-- Item 1 -->
+                        <div onclick="toggleLogItem(this)" class="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-royalGold/5 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="checkbox-box w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white text-xs bg-white">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold">골골송 세레나데를 들었나요?</p>
+                                    <span class="text-[10px] text-royalGold font-medium">+1P 장기 편안함 체크</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-music text-slate-300 transition-colors"></i>
+                        </div>
+                        
+                        <!-- Item 2 -->
+                        <div onclick="toggleLogItem(this)" class="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-royalGold/5 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="checkbox-box w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white text-xs bg-white">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold">낮잠을 같이 자며 체온을 나누었나요?</p>
+                                    <span class="text-[10px] text-royalGold font-medium">+1P 정서적 릴랙스</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-bed text-slate-300 transition-colors"></i>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div onclick="toggleLogItem(this)" class="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-royalGold/5 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="checkbox-box w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white text-xs bg-white">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold">천천히 눈을 깜빡이는 '눈 키스' 성공?</p>
+                                    <span class="text-[10px] text-royalGold font-medium">+1P 시력 및 인지 케어</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-eye text-slate-300 transition-colors"></i>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div onclick="toggleLogItem(this)" class="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-royalGold/5 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="checkbox-box w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white text-xs bg-white">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold">우아한 '식빵 굽기' 감상하셨나요?</p>
+                                    <span class="text-[10px] text-royalGold font-medium">+1P 소화 밸런스</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-bread-slice text-slate-300 transition-colors"></i>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div onclick="toggleLogItem(this)" class="flex items-center justify-between p-3 rounded-xl border border-slate-100 bg-slate-50/50 hover:bg-royalGold/5 cursor-pointer transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="checkbox-box w-6 h-6 rounded-full border-2 border-slate-300 flex items-center justify-center text-white text-xs bg-white">
+                                    <i class="fa-solid fa-check"></i>
+                                </span>
+                                <div>
+                                    <p class="text-xs font-bold">꼬순내 폭발하는 젤리(발바닥) 마사지</p>
+                                    <span class="text-[10px] text-royalGold font-medium">+1P 관절 및 마사지 케어</span>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-paw text-slate-300 transition-colors"></i>
+                        </div>
+                    </div>
+
+                    <!-- Live Relational score tracker -->
+                    <div class="mt-5 p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-slate-400 block uppercase">Today's Energy Meter</span>
+                            <span id="relation-score-desc" class="font-bold text-xs text-royalBlue">느릿한 행복 충전 중</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="w-24 bg-slate-200 h-2 rounded-full overflow-hidden">
+                                <div id="energy-progress-bar" class="bg-gradient-to-r from-royalGold to-emerald-400 h-full w-0 transition-all duration-500"></div>
+                            </div>
+                            <span id="energy-percentage" class="text-xs font-bold">0%</span>
+                        </div>
+                    </div>
+
+                    <!-- Log Submit Action -->
+                    <button onclick="submitDailyLog()" class="w-full mt-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>오늘의 7초 케어 완료하기</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= TAB CONTENT 3: 훈장 & 에이징 리포트 (포켓몬 카드 100% 반영) ================= -->
+            <div id="tab-report" class="tab-content px-4 hidden space-y-4">
+                
+                <!-- Premium Live Generated TCG Card (Pokemon Style) -->
+                <div class="bg-royalDark text-white rounded-2xl p-4 shadow-lg border border-royalGold/30 relative overflow-hidden">
+                    <span class="text-[10px] bg-royalGold text-royalDark px-2 py-0.5 rounded-full font-bold absolute top-4 right-4">ROYAL TCG CARD</span>
+                    <h3 class="font-sans text-base text-royalGold font-bold mb-3">팰린 헤리티지 훈장</h3>
+                    
+                    <!-- HIGH FIDELITY POKEMON TCG CARD WRAPPER -->
+                    <div class="bg-[#dfd9b8] border-[10px] border-[#d3c89d] rounded-[18px] p-2.5 text-slate-900 shadow-md flex flex-col justify-between min-h-[500px] outline outline-1 outline-[#a5986c]">
+                        
+                        <!-- Header Area -->
+                        <div class="flex justify-between items-center px-1 mb-1">
+                            <div class="flex items-center gap-1.5">
+                                <!-- Metallic "핵심" badge -->
+                                <span class="bg-gradient-to-b from-gray-300 via-gray-100 to-gray-400 text-[9px] font-black px-2 py-0.5 rounded border border-gray-400 shadow-sm text-slate-800 tracking-tight transform -skew-x-12">핵심</span>
+                                <h4 class="text-xl font-extrabold text-slate-950 font-sans tracking-tight" id="card-name">코코</h4>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-xs font-black text-slate-950 font-sans" id="card-age-text">Age 12</span>
+                                <!-- Colorless Star Energy Circle -->
+                                <div class="w-5 h-5 rounded-full bg-slate-100 border border-slate-400 flex items-center justify-center shadow-inner">
+                                    <i class="fa-solid fa-star text-[10px] text-slate-800"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Card Photo Section (TCG Frame) -->
+                        <div class="relative bg-gradient-to-b from-[#b5aa78] to-[#e4dda6] p-1 rounded border-2 border-[#b0a473] shadow-inner">
+                            <div class="aspect-[4/3] w-full rounded overflow-hidden border border-slate-700 relative">
+                                <img id="card-photo" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200" alt="Cat portrait">
+                                
+                                <!-- Royal Canin Brand Logo overlay -->
+                                <div class="absolute top-2 right-2 bg-white/95 px-2 py-1.5 rounded shadow-md border border-slate-300 flex flex-col items-center leading-none">
+                                    <svg class="w-5 h-4 text-royalCrimson mb-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M2 19h20v2H2v-2zm1-2h18L19 7l-4 4-3-6-3 6-4-4-3 10z"/>
+                                    </svg>
+                                    <span class="text-[5px] font-black text-royalCrimson tracking-widest uppercase">ROYAL CANIN</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- species/nutrition info strip -->
+                        <div class="bg-gradient-to-r from-[#cfc7a0] via-[#ede7c7] to-[#cfc7a0] border-y border-[#b5aa78] text-[7.5px] font-bold text-center py-0.5 text-slate-700 tracking-tight my-1 shadow-sm">
+                            전국도감 NO.035 로얄팰린 에이징 식단 <span id="card-breed-strip">러시안 블루</span> 섭취
+                        </div>
+
+                        <!-- Card Body Skill Area -->
+                        <div class="flex-1 bg-[#ede8cb] rounded border border-[#cac29d] p-2 flex flex-col justify-between relative shadow-inner">
+                            <div class="flex gap-2 items-start">
+                                <!-- Energy Circle (Fighting/Fist type matching Meowth card) -->
+                                <div class="w-6 h-6 rounded-full bg-[#c95a28] border border-[#a24116] text-white flex items-center justify-center text-[11px] shadow-sm font-black flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-paw"></i>
+                                </div>
+                                <div class="flex-1 space-y-1">
+                                    <h5 class="text-base font-black text-slate-900 tracking-tight" id="card-rank-display">계급 : 백작</h5>
+                                    <p class="text-[10px] font-bold text-slate-800 leading-snug">로얄캐닌의 에이징 사료를 먹고 오래오래 건강하게 지내자!</p>
+                                </div>
+                            </div>
+
+                            <!-- QR Code & Mini Details layout on bottom right of skill area -->
+                            <div class="flex justify-end items-end mt-2">
+                                <!-- Mini QR Code Representation -->
+                                <div class="bg-white p-1 rounded border border-slate-300 shadow-sm flex items-center justify-center">
+                                    <!-- Customized vector simulated QR grid -->
+                                    <svg class="w-12 h-12 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M0 0h9v9H0V0zm1 1v7h7V1H1zm10 0h2v2h-2V1zm5 0h2v1h-2V1zm2 1h1v1h-1V2zm-3 1h1v1h-1V3zm4 0h1v2h-1V3zM0 11h2v2H0v-2zm3 0h2v1H3v-1zm0 2h1v1H3v-1zm1 1h1v1H4v-1zm1-3h1v1H5v-1zm4 1h1v1H9v-1zm2 0h1v2h-1v-2zm1-2h1v1h-1v-1zm3 0h1v1h-1v-1zm-1 2h1v1h-1v-1zm3 0h1v2h-1v-2zm-3 2h1v1h-1v-1zm4 0h1v1h-1v-1zm-6 2h1v2h-1v-2zm2 0h2v1h-2v-1zm1 1h1v1h-1v-1zm3-1h1v1h-1v-1zm1 1h1v1h-1v-1zm-14 3h9v9H0v-9zm1 1v7h7v-7H1zm11 0h2v1h-2v-1zm2 1h1v1h-1v-1zm-1 1h1v1h-1v-1zm4-3h2v2h-2v-2zm2 1h1v2h-1v-2zm-2 2h1v1h-1v-1zm3 0h1v1h-1v-1zm-1 1h1v1h-1v-1z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer metadata -->
+                        <div class="mt-1.5 pt-1 border-t border-[#b5aa78]/40 flex flex-col justify-between text-[7px] text-slate-700 leading-tight">
+                            <div class="flex justify-between font-bold border-b border-[#b5aa78]/20 pb-0.5">
+                                <span>weakness/resistance | resistance</span>
+                                <span>R FELIN 052/M-P</span>
+                            </div>
+                            <div class="flex justify-between mt-1 items-end">
+                                <div>
+                                    <span class="block italic" id="card-illustrator">Illus. 코코 집사</span>
+                                    <span class="font-mono text-[6px]">©2026 Royal Felin / Royal Canin.</span>
+                                </div>
+                                <span class="font-bold text-right">로얄캐닌의 에이징 캠페인을<br>기념하는 카드입니다.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Claim reward button -->
+                    <button onclick="claimCardReward()" class="w-full mt-4 bg-royalGold hover:bg-royalGoldLight text-royalDark font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow transition-all">
+                        <i class="fa-solid fa-award"></i>
+                        실물 카드로 똑같이 수령하기 (무료 배송)
+                    </button>
+                </div>
+
+                <!-- Interactive Aging Graph -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold">Precision Result</span>
+                    <h4 class="font-sans text-base font-bold text-royalBlue mt-2 mb-1">우리 애 노화 역행 그래프</h4>
+                    <p class="text-xs text-slate-500 mb-4">로얄팰린 정밀 식단 급여 후 변화된 건강 및 정서 스탯 피드백입니다.</p>
+
+                    <!-- Interactive Progress bars simulating statistics -->
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span class="text-slate-600"><i class="fa-solid fa-bolt text-amber-500 mr-1"></i>정서 및 세포 활력</span>
+                                <span class="text-emerald-500">+15% 상승 완료</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-400 to-emerald-400 h-full w-[85%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span class="text-slate-600"><i class="fa-solid fa-heart-pulse text-red-500 mr-1"></i>체내 신장 필터 부하</span>
+                                <span class="text-emerald-500">-22% 경감 성공</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-red-400 to-emerald-400 h-full w-[78%]"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-bold mb-1">
+                                <span class="text-slate-600"><i class="fa-solid fa-hourglass-half text-royalBlue mr-1"></i>신체 환산 나이</span>
+                                <span class="text-royalBlue">2세 영양 역행 완료</span>
+                            </div>
+                            <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                                <div class="bg-gradient-to-r from-royalBlue to-royalGold h-full w-[92%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Aesthetic 영수증 (The Heritage Receipt) -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden">
+                    <div class="absolute -top-12 -right-12 w-24 h-24 bg-royalGold/5 rounded-full"></div>
+                    <h4 class="font-sans text-base font-bold text-royalBlue mb-1">영수증 형태의 '묘생 훈장'</h4>
+                    <p class="text-xs text-slate-500 mb-4">인생의 가치와 함께 기록된 위트 있는 동반 영수증입니다.</p>
+
+                    <!-- Receipt Board Simulation -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 font-mono text-xs text-slate-700 shadow-inner">
+                        <div class="text-center pb-2 border-b border-dashed border-slate-300">
+                            <span class="font-black text-sm tracking-widest text-royalBlue">PALIN HERITAGE RECEIPT</span>
+                            <p class="text-[9px] text-slate-400">Date: 2026.05.22 / No. 0429-99</p>
+                        </div>
+                        
+                        <div class="py-3 space-y-2 border-b border-dashed border-slate-300">
+                            <div class="flex justify-between">
+                                <span>[동행 일수]</span>
+                                <span id="receipt-days" class="font-bold">4,380 Days</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>[골골송 청취 세션]</span>
+                                <span class="font-bold">5,410 Session</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>[눈맞춤 교감 시간]</span>
+                                <span class="font-bold">12,240 Min</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>[동반 수면 횟수]</span>
+                                <span class="font-bold">3,120 Times</span>
+                            </div>
+                            <div class="flex justify-between text-royalBlue font-black">
+                                <span>[신장 부하 최소화 성과]</span>
+                                <span>100% SUCCESS</span>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-3 text-center">
+                            <p class="text-[10px] text-royalGold font-black" id="receipt-rank-display">👑 계급: 백작</p>
+                            <p class="text-[9px] text-slate-400 mt-1">우리 애의 우아한 황금기를 평생 인증합니다.</p>
+                        </div>
+                    </div>
+
+                    <!-- Download/Share Button -->
+                    <button onclick="downloadReceipt()" class="w-full mt-3 bg-slate-900 hover:bg-black text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
+                        <i class="fa-solid fa-download"></i>
+                        영수증 이미지 다운로드 & 인스타 공유
+                    </button>
+                </div>
+            </div>
+
+            <!-- ================= TAB CONTENT 4: 팰린클럽 & 정기구독 ================= -->
+            <div id="tab-club" class="tab-content px-4 hidden space-y-4">
+                
+                <!-- Subscription Card -->
+                <div class="bg-gradient-to-r from-royalBlue to-royalDark text-white rounded-2xl p-4 shadow-md border border-royalGold/30">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-[10px] bg-royalGold text-royalDark font-bold px-2 py-0.5 rounded-full">ACTIVE SUBSCRIBER</span>
+                        <span class="text-xs text-royalGoldLight font-bold">결제 예정일: 06월 01일</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="bg-white/10 p-2.5 rounded-xl border border-white/20">
+                            <i class="fa-solid fa-box text-2xl text-royalGold"></i>
+                        </div>
+                        <div>
+                            <h4 id="sub-title" class="font-sans text-sm font-bold text-royalGoldLight">로얄팰린 마스터 레날 에디션</h4>
+                            <p class="text-[11px] text-white/70">12세 이상 노령묘 신장 집중 관리 전문 식단</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashed-border my-4"></div>
+                    
+                    <div class="flex justify-between items-center text-xs">
+                        <span>매달 1일 정기배송 완료</span>
+                        <button onclick="showSubscriptionModal()" class="text-royalGold hover:underline font-bold text-[11px]">배송지/식단 변경</button>
+                    </div>
+                </div>
+
+                <!-- Weekly Mission Tracker -->
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold">Weekly Quest</span>
+                    <h3 class="font-sans text-base font-bold text-royalBlue mt-2 mb-1">금주의 케어 챌린지</h3>
+                    <p class="text-xs text-slate-500 mb-4">한 알의 변화로 만드는 기적. 미션을 완수하면 적립금을 지급합니다.</p>
+
+                    <div class="space-y-3">
+                        <!-- Quest 1 -->
+                        <div id="quest-1" class="flex justify-between items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">팰린 7초 로그 3회 달성하기</p>
+                                    <span class="text-[10px] text-slate-400">완료 시 +1 P 적립금 및 기부</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full">지급완료</span>
+                        </div>
+
+                        <!-- Quest 2 -->
+                        <div id="quest-2" class="flex justify-between items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">에이징 맞춤사료 10g 섞어보기</p>
+                                    <span class="text-[10px] text-slate-400">완료 시 +1 P 적립금 및 기부</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full">지급완료</span>
+                        </div>
+
+                        <!-- Quest 3 (Interactive) -->
+                        <div id="quest-3" class="flex justify-between items-center p-3 rounded-xl border border-royalGold/20 bg-royalGold/5">
+                            <div class="flex items-center gap-2">
+                                <i id="quest-3-icon" class="fa-regular fa-circle text-slate-400 text-lg"></i>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-800">잇몸 상태 가볍게 눈으로 체크</p>
+                                    <span class="text-[10px] text-royalGold">완료 시 +1 P 적립금 및 기부</span>
+                                </div>
+                            </div>
+                            <button id="quest-3-btn" onclick="completeQuest3()" class="text-[11px] bg-royalBlue text-white hover:bg-royalDark px-3 py-1 rounded-full font-bold transition-all">클릭완료</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stray Shelter Donation Tracker -->
+                <div class="bg-rose-50 rounded-2xl p-4 shadow-sm border border-rose-100 text-center">
+                    <span class="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full font-bold inline-block">Value Sharing</span>
+                    <h4 class="font-sans text-sm font-bold text-rose-950 mt-2 mb-1">노령 유기묘를 위한 선한 동행</h4>
+                    <p class="text-[11px] text-rose-800 mb-3">집사님의 사료 전환 및 미션 성과가 길거리 노령묘의 정밀 영양 후원으로 직접 연결됩니다.</p>
+                    
+                    <!-- Kibble Donation Counter -->
+                    <div class="flex items-center justify-center gap-2 text-rose-600 mb-3">
+                        <i class="fa-solid fa-heart pulse-gold text-2xl"></i>
+                        <span id="donation-counter" class="font-sans text-xl font-bold tracking-tight">1,429,800 g</span>
+                        <span class="text-xs text-rose-900 font-bold">누적 후원 완료</span>
+                    </div>
+
+                    <!-- Daily Limited Donation Button -->
+                    <button id="btn-donate" onclick="addDonationBonus()" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1 transition-all">
+                        <i class="fa-solid fa-circle-plus"></i>
+                        <span>추가 사료 기부하기 (1일 1회, 1g 후원)</span>
+                    </button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Premium Bottom Navigation Bar (MZ Aesthetic Style) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 py-2 flex justify-around items-center z-50">
+            <button onclick="switchTab('grad')" id="btn-tab-grad" class="nav-btn flex flex-col items-center gap-1.5 text-royalBlue">
+                <i class="fa-solid fa-house text-lg transition-transform hover:scale-110"></i>
+                <span class="text-[9px] font-bold">홈</span>
+            </button>
+            <button onclick="switchTab('log')" id="btn-tab-log" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400">
+                <i class="fa-solid fa-clock-rotate-left text-lg transition-transform hover:scale-110"></i>
+                <span class="text-[9px] font-bold">7초 로그</span>
+            </button>
+            <button onclick="switchTab('report')" id="btn-tab-report" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 relative">
+                <div class="absolute -top-3 w-10 h-10 bg-royalBlue text-white border-4 border-white rounded-full flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-award text-sm"></i>
+                </div>
+                <span class="text-[9px] font-bold mt-6">헤리티지 카드</span>
+            </button>
+            <button onclick="switchTab('club')" id="btn-tab-club" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400">
+                <i class="fa-solid fa-repeat text-lg transition-transform hover:scale-110"></i>
+                <span class="text-[9px] font-bold">팰린클럽</span>
+            </button>
+        </nav>
+
+        <!-- Custom Notification Toast -->
+        <div id="toast-notification" class="absolute top-16 left-4 right-4 bg-slate-900/95 text-white py-3 px-4 rounded-xl shadow-lg z-50 transform translate-y-[-150%] transition-transform duration-300 ease-out flex items-center gap-3">
+            <i id="toast-icon" class="fa-solid fa-circle-check text-royalGold text-lg"></i>
+            <p id="toast-message" class="text-xs font-bold leading-tight">임시 알림 메시지입니다.</p>
+        </div>
+
+        <!-- Onboarding & Profile Edit Modal -->
+        <div id="profile-edit-modal" class="hidden absolute inset-0 bg-black/60 z-50 flex items-end justify-center">
+            <div class="bg-white rounded-t-3xl w-full p-6 space-y-4 max-h-[85%] overflow-y-auto">
+                <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                    <h3 class="font-sans text-lg font-bold text-royalBlue">반려묘 정보 등록 및 수정</h3>
+                    <button onclick="toggleProfileEditModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                
+                <div class="space-y-3 text-xs">
+                    <div>
+                        <label class="block font-bold text-slate-600 mb-1">고양이 이름</label>
+                        <input id="input-cat-name" type="text" class="w-full border border-slate-200 rounded-xl p-2.5 outline-none focus:border-royalGold" value="코코">
+                    </div>
+                    
+                    <div>
+                        <label class="block font-bold text-slate-600 mb-1">묘종 선택</label>
+                        <input id="input-cat-breed" type="text" class="w-full border border-slate-200 rounded-xl p-2.5 outline-none focus:border-royalGold" value="러시안 블루">
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-600 mb-1">함께한 나이 (년)</label>
+                        <select id="input-cat-age" class="w-full border border-slate-200 rounded-xl p-2.5 outline-none focus:border-royalGold" onchange="updateAgeDerivedFields()">
+                            <option value="3">3살 (남작)</option>
+                            <option value="5">5살 (남작)</option>
+                            <option value="7">7살 (자작)</option>
+                            <option value="12" selected>12살 (백작)</option>
+                            <option value="15">15살 (공작)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold text-slate-600 mb-1">프로필 사진 템플릿</label>
+                        <div class="grid grid-cols-4 gap-2">
+                            <img onclick="selectAvatar('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200', this)" class="w-full aspect-square object-cover rounded-lg border-2 border-royalGold cursor-pointer avatar-option" src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200">
+                            <img onclick="selectAvatar('https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=200', this)" class="w-full aspect-square object-cover rounded-lg border border-slate-200 cursor-pointer avatar-option" src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=200">
+                            <img onclick="selectAvatar('https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=200', this)" class="w-full aspect-square object-cover rounded-lg border border-slate-200 cursor-pointer avatar-option" src="https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=200">
+                            <img onclick="selectAvatar('https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=200', this)" class="w-full aspect-square object-cover rounded-lg border border-slate-200 cursor-pointer avatar-option" src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=200">
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="saveProfile()" class="w-full mt-4 bg-royalBlue text-white font-bold py-3 rounded-xl transition-all hover:bg-royalDark">
+                    작위 하사 및 프로필 업데이트
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Web Application Logic -->
+    <script>
+        // Global State Management
+        let appState = {
+            catName: '코코',
+            catBreed: '러시안 블루',
+            catAge: 12,
+            avatarUrl: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200',
+            rankName: '백작',
+            rankTitle: '백작',
+            rankEmoji: '👑',
+            carePoints: 450,
+            logCompletedToday: false,
+            relationChecks: [false, false, false, false, false],
+            hasDonatedToday: false
+        };
+
+        // Static configuration mapping Age -> Simplified clean ranks (Namjak, Jajak, Baekjak, Gongjak)
+        function getRankConfig(age) {
+            const ageNum = parseInt(age);
+            if (ageNum >= 15) {
+                return {
+                    name: '공작',
+                    title: '공작',
+                    emoji: '🥇',
+                    desc: '우아함의 완성을 지키는 수호자',
+                    subProduct: '로얄팰린 레전드 브레인'
+                };
+            } else if (ageNum >= 10) {
+                return {
+                    name: '백작',
+                    title: '백작',
+                    emoji: '👑',
+                    desc: '세월이 빚어낸 명작 묘생',
+                    subProduct: '로얄팰린 마스터 레날 에디션'
+                };
+            } else if (ageNum >= 7) {
+                return {
+                    name: '자작',
+                    title: '자작',
+                    emoji: '🛡️',
+                    desc: '연륜과 지혜가 가득한 베테랑',
+                    subProduct: '로얄팰린 베테랑 조인트'
+                };
+            } else {
+                return {
+                    name: '남작',
+                    title: '남작',
+                    emoji: '🌱',
+                    desc: '위대한 연대기의 찬란한 시작',
+                    subProduct: '로얄팰린 루키 어덜트'
+                };
+            }
+        }
+
+        // On Load initialization
+        window.onload = function() {
+            updateUIFromState();
+        };
+
+        // Tab Switch Controller
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.add('hidden');
+            });
+            // Reset nav buttons highlight
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-royalBlue');
+                btn.classList.add('text-slate-400');
+            });
+            
+            // Show active tab
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            // Highlight active button
+            document.getElementById(`btn-tab-${tabId}`).classList.remove('text-slate-400');
+            document.getElementById(`btn-tab-${tabId}`).classList.add('text-royalBlue');
+        }
+
+        // Toast alert system
+        function showToast(message, iconClass = 'fa-circle-check', isError = false) {
+            const toast = document.getElementById('toast-notification');
+            const icon = document.getElementById('toast-icon');
+            const text = document.getElementById('toast-message');
+            
+            icon.className = `fa-solid ${iconClass} ${isError ? 'text-red-500' : 'text-royalGold'} text-lg`;
+            text.innerText = message;
+            
+            toast.classList.remove('translate-y-[-150%]');
+            toast.classList.add('translate-y-0');
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0');
+                toast.classList.add('translate-y-[-150%]');
+            }, 3000);
+        }
+
+        // Feature 1: AI Slideshow generator mockup
+        let isSlidePlaying = false;
+        let slideTimer = null;
+        const presetPhotos = [
+            'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=350',
+            'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&q=80&w=350',
+            'https://images.unsplash.com/photo-1533738363-b7f9aef128ce?auto=format&fit=crop&q=80&w=350',
+            'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=350'
+        ];
+        let currentSlideIdx = 0;
+
+        function generateAIVideo() {
+            showToast("AI가 추억 사진을 분석하여 명작을 생성 중입니다...", "fa-wand-magic-sparkles");
+            
+            const generateButton = document.querySelector('[onclick="generateAIVideo()"]');
+            generateButton.disabled = true;
+            generateButton.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>영상 렌더링 중...</span>`;
+
+            setTimeout(() => {
+                document.getElementById('video-display-area').classList.remove('hidden');
+                generateButton.disabled = false;
+                generateButton.innerHTML = `<i class="fa-solid fa-magic-wand-sparkles text-royalGold"></i> <span>AI 연대기 숏폼 다시 만들기</span>`;
+                showToast("명작 비디오 생성 완료! SNS에 공유해 보세요.", "fa-film");
+                
+                // Start Slide Interval
+                if (isSlidePlaying) clearInterval(slideTimer);
+                isSlidePlaying = true;
+                slideTimer = setInterval(() => {
+                    currentSlideIdx = (currentSlideIdx + 1) % presetPhotos.length;
+                    const imgEl = document.getElementById('video-slide');
+                    imgEl.style.opacity = 0;
+                    setTimeout(() => {
+                        imgEl.src = presetPhotos[currentSlideIdx];
+                        imgEl.style.opacity = 1;
+                    }, 500);
+                }, 3000);
+            }, 2000);
+        }
+
+        // Custom clipboard copy helper (Safeguard-compliant execution)
+        function copyTextLegacy(text) {
+            const tempInput = document.createElement("input");
+            tempInput.style.position = "absolute";
+            tempInput.style.left = "-9999px";
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+        }
+
+        function shareToInstagram() {
+            copyTextLegacy("https://royalcanin.co.kr/palin-heritage");
+            showToast("인스타그램 스토리 전용 링크가 클립보드에 복사되었습니다. 스토리에서 편하게 붙여넣으세요!", "fa-square-check");
+        }
+
+        function shareToKakao() {
+            showToast("친구의 카카오톡으로 자랑을 보냈습니다!", "fa-paper-plane");
+        }
+
+        // Feature 2: 7-Second Sensory Check Logic
+        function toggleLogItem(element) {
+            const checkbox = element.querySelector('.checkbox-box');
+            const icon = element.querySelector('i');
+            
+            if (checkbox.classList.contains('bg-white')) {
+                // Check
+                checkbox.classList.remove('bg-white', 'border-slate-300');
+                checkbox.classList.add('bg-emerald-500', 'border-emerald-500');
+                icon.classList.remove('text-slate-300');
+                icon.classList.add('text-emerald-500');
+                element.classList.add('border-emerald-200', 'bg-emerald-50/20');
+            } else {
+                // Uncheck
+                checkbox.classList.remove('bg-emerald-500', 'border-emerald-500');
+                checkbox.classList.add('bg-white', 'border-slate-300');
+                icon.classList.remove('text-emerald-500');
+                icon.classList.add('text-slate-300');
+                element.classList.remove('border-emerald-200', 'bg-emerald-50/20');
+            }
+            
+            updateRelationMeter();
+        }
+
+        function updateRelationMeter() {
+            const listItems = document.getElementById('log-checklist').children;
+            let checkedCount = 0;
+            for (let item of listItems) {
+                if (item.querySelector('.checkbox-box').classList.contains('bg-emerald-500')) {
+                    checkedCount++;
+                }
+            }
+            
+            const progress = (checkedCount / listItems.length) * 100;
+            document.getElementById('energy-progress-bar').style.width = `${progress}%`;
+            document.getElementById('energy-percentage').innerText = `${Math.round(progress)}%`;
+            
+            const desc = document.getElementById('relation-score-desc');
+            if (progress === 100) {
+                desc.innerText = "묘생 만렙 교감 달성!";
+                desc.className = "font-bold text-xs text-emerald-500";
+            } else if (progress >= 50) {
+                desc.innerText = "안도와 정서가 흐르는 시간";
+                desc.className = "font-bold text-xs text-royalGold";
+            } else {
+                desc.innerText = "느릿한 행복 충전 중";
+                desc.className = "font-bold text-xs text-royalBlue";
+            }
+        }
+
+        function submitDailyLog() {
+            const listItems = document.getElementById('log-checklist').children;
+            let checkedCount = 0;
+            for (let item of listItems) {
+                if (item.querySelector('.checkbox-box').classList.contains('bg-emerald-500')) {
+                    checkedCount++;
+                }
+            }
+
+            if (checkedCount === 0) {
+                showToast("최소 한 개의 교감 요소를 체크해 주세요.", "fa-circle-xmark", true);
+                return;
+            }
+
+            // Every logged item earns 1P
+            appState.carePoints += checkedCount * 1;
+            updateUIFromState();
+            showToast(`오늘의 7초 교감 완료! ${checkedCount * 1}P가 추가되었습니다.`, "fa-gift");
+            
+            // Auto transition to the Heritage report tab
+            setTimeout(() => {
+                switchTab('report');
+            }, 1200);
+        }
+
+        // Profile Setup / Onboarding Modal Handlers
+        function toggleProfileEditModal() {
+            const modal = document.getElementById('profile-edit-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        let selectedAvatarUrl = 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=200';
+        function selectAvatar(url, imgEl) {
+            selectedAvatarUrl = url;
+            document.querySelectorAll('.avatar-option').forEach(img => {
+                img.classList.remove('border-royalGold');
+                img.classList.add('border-slate-200');
+            });
+            imgEl.classList.remove('border-slate-200');
+            imgEl.classList.add('border-royalGold');
+        }
+
+        function updateAgeDerivedFields() {
+            const ageVal = document.getElementById('input-cat-age').value;
+            const config = getRankConfig(ageVal);
+            showToast(`${config.title} 작격으로 등급이 설정됩니다.`, "fa-shield-cat");
+        }
+
+        function saveProfile() {
+            appState.catName = document.getElementById('input-cat-name').value;
+            appState.catBreed = document.getElementById('input-cat-breed').value;
+            appState.catAge = parseInt(document.getElementById('input-cat-age').value);
+            appState.avatarUrl = selectedAvatarUrl;
+            
+            const config = getRankConfig(appState.catAge);
+            appState.rankName = config.name;
+            appState.rankTitle = config.title;
+            appState.rankEmoji = config.emoji;
+            
+            updateUIFromState();
+            toggleProfileEditModal();
+            showToast("반려묘 정보와 작위가 완벽히 업데이트되었습니다!", "fa-crown");
+        }
+
+        // Sync visual UI with global app state
+        function updateUIFromState() {
+            // Header & Banner
+            document.getElementById('header-badge').innerText = appState.rankName;
+            document.getElementById('cat-avatar').src = appState.avatarUrl;
+            document.getElementById('rank-emoji').innerText = appState.rankEmoji;
+            document.getElementById('profile-name-display').innerText = appState.catName;
+            document.getElementById('profile-breed-display').innerText = appState.catBreed;
+            document.getElementById('profile-age-display').innerText = `${appState.catAge}년 차 베테랑 집사와 동행 중`;
+            document.getElementById('rank-title-display').innerText = appState.rankTitle;
+            document.getElementById('point-display').innerText = `${appState.carePoints} P`;
+            
+            // Card Tab Sync
+            document.getElementById('card-photo').src = appState.avatarUrl;
+            document.getElementById('card-name').innerText = appState.catName;
+            document.getElementById('card-breed').innerText = appState.catBreed;
+            document.getElementById('card-age-text').innerText = `Age ${appState.catAge}`;
+            document.getElementById('card-age').innerText = `${appState.catAge}살 (${appState.rankTitle})`;
+            document.getElementById('card-rank-title').innerText = appState.rankTitle;
+            document.getElementById('card-badge').innerText = `👑 ${appState.rankTitle}`;
+            document.getElementById('card-rank-display').innerText = `계급 : ${appState.rankTitle}`;
+            document.getElementById('card-breed-strip').innerText = appState.catBreed;
+            document.getElementById('card-illustrator').innerText = `Illus. ${appState.catName} 집사`;
+            
+            // Receipt Sync
+            document.getElementById('receipt-days').innerText = `${appState.catAge * 365} Days`;
+            document.getElementById('receipt-rank-display').innerText = `👑 계급: ${appState.rankTitle}`;
+            
+            // Subscription Sync
+            const config = getRankConfig(appState.catAge);
+            document.getElementById('sub-title').innerText = config.subProduct;
+
+            // Video overlay sync
+            document.getElementById('overlay-breed').innerText = appState.catBreed;
+            document.getElementById('overlay-rank').innerText = appState.rankTitle;
+            document.getElementById('overlay-name').innerText = appState.catName;
+        }
+
+        // Download receipt simulation (Toast message simplified based on feedback)
+        function downloadReceipt() {
+            showToast("영수증 이미지를 성공적으로 저장했습니다.", "fa-file-arrow-down");
+        }
+
+        // Complete Quest 3 (Earns 1P based on feedback)
+        function completeQuest3() {
+            const btn = document.getElementById('quest-3-btn');
+            const icon = document.getElementById('quest-3-icon');
+            const card = document.getElementById('quest-3');
+            
+            icon.className = "fa-solid fa-circle-check text-emerald-500 text-lg";
+            btn.innerText = "지급완료";
+            btn.className = "text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full";
+            btn.disabled = true;
+            
+            appState.carePoints += 1;
+            updateUIFromState();
+            showToast("보너스 미션 완료! 1P가 적립되었습니다.", "fa-heart-circle-check");
+        }
+
+        // Stray donation simulation (1g donation, limited to once per day based on feedback)
+        let baseDonation = 1429800;
+        function addDonationBonus() {
+            if (appState.hasDonatedToday) {
+                showToast("오늘의 사료 기부는 이미 완료되었습니다. 내일 다시 참여해 주세요!", "fa-circle-xmark", true);
+                return;
+            }
+            
+            baseDonation += 1;
+            appState.hasDonatedToday = true;
+            document.getElementById('donation-counter').innerText = `${baseDonation.toLocaleString()} g`;
+            
+            // Update button visual state
+            const donateBtn = document.getElementById('btn-donate');
+            donateBtn.disabled = true;
+            donateBtn.innerHTML = `<i class="fa-solid fa-check"></i> 오늘의 후원 완료 (1g)`;
+            donateBtn.className = "w-full bg-slate-400 text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1 cursor-not-allowed transition-all";
+            
+            showToast("길거리 노령묘를 위해 1g 사료를 기부하였습니다. 감사합니다!", "fa-heart");
+        }
+
+        function claimCardReward() {
+            showToast("실물 카드 및 기념 훈장이 신청되었습니다! (14일 이내 순차 배송)", "fa-award");
+        }
+    </script>
+</body>
+</html>
