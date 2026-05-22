@@ -148,7 +148,7 @@
                 </div>
             </section>
 
-            <!-- ================= TAB CONTENT 1: 홈 (기존 AI 묘생 졸업앨범) ================= -->
+            <!-- ================= TAB CONTENT 1: 홈 ================= -->
             <div id="tab-grad" class="tab-content px-4 space-y-4">
                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
                     <div class="flex items-center justify-between mb-2">
@@ -236,7 +236,7 @@
                         </button>
                         <button onclick="shareToKakao()" class="bg-[#FEE500] text-black font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 hover:opacity-90 transition-all">
                             <i class="fa-solid fa-comment text-base"></i>
-                            단반 카톡 친구 자랑
+                            카톡 친구 자랑
                         </button>
                     </div>
                 </div>
@@ -344,7 +344,7 @@
                 </div>
             </div>
 
-            <!-- ================= TAB CONTENT 3: 훈장 & 에이징 리포트 (포켓몬 카드 100% 반영) ================= -->
+            <!-- ================= TAB CONTENT 3: 훈장 & 에이징 리포트 ================= -->
             <div id="tab-report" class="tab-content px-4 hidden space-y-4">
                 
                 <!-- Premium Live Generated TCG Card (Pokemon Style) -->
@@ -404,11 +404,9 @@
                                 </div>
                             </div>
 
-                            <!-- QR Code & Mini Details layout on bottom right of skill area -->
+                            <!-- QR Code layout -->
                             <div class="flex justify-end items-end mt-2">
-                                <!-- Mini QR Code Representation -->
                                 <div class="bg-white p-1 rounded border border-slate-300 shadow-sm flex items-center justify-center">
-                                    <!-- Customized vector simulated QR grid -->
                                     <svg class="w-12 h-12 text-slate-950" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M0 0h9v9H0V0zm1 1v7h7V1H1zm10 0h2v2h-2V1zm5 0h2v1h-2V1zm2 1h1v1h-1V2zm-3 1h1v1h-1V3zm4 0h1v2h-1V3zM0 11h2v2H0v-2zm3 0h2v1H3v-1zm0 2h1v1H3v-1zm1 1h1v1H4v-1zm1-3h1v1H5v-1zm4 1h1v1H9v-1zm2 0h1v2h-1v-2zm1-2h1v1h-1v-1zm3 0h1v1h-1v-1zm-1 2h1v1h-1v-1zm3 0h1v2h-1v-2zm-3 2h1v1h-1v-1zm4 0h1v1h-1v-1zm-6 2h1v2h-1v-2zm2 0h2v1h-2v-1zm1 1h1v1h-1v-1zm3-1h1v1h-1v-1zm1 1h1v1h-1v-1zm-14 3h9v9H0v-9zm1 1v7h7v-7H1zm11 0h2v1h-2v-1zm2 1h1v1h-1v-1zm-1 1h1v1h-1v-1zm4-3h2v2h-2v-2zm2 1h1v2h-1v-2zm-2 2h1v1h-1v-1zm3 0h1v1h-1v-1zm-1 1h1v1h-1v-1z"/>
                                     </svg>
@@ -439,13 +437,11 @@
                     </button>
                 </div>
 
-                <!-- Interactive Aging Graph -->
                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
                     <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold">Precision Result</span>
                     <h4 class="font-sans text-base font-bold text-royalBlue mt-2 mb-1">우리 애 노화 역행 그래프</h4>
                     <p class="text-xs text-slate-500 mb-4">로얄팰린 정밀 식단 급여 후 변화된 건강 및 정서 스탯 피드백입니다.</p>
 
-                    <!-- Interactive Progress bars simulating statistics -->
                     <div class="space-y-4">
                         <div>
                             <div class="flex justify-between text-xs font-bold mb-1">
@@ -479,13 +475,11 @@
                     </div>
                 </div>
 
-                <!-- Aesthetic 영수증 (The Heritage Receipt) -->
                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 relative overflow-hidden">
                     <div class="absolute -top-12 -right-12 w-24 h-24 bg-royalGold/5 rounded-full"></div>
                     <h4 class="font-sans text-base font-bold text-royalBlue mb-1">영수증 형태의 '묘생 훈장'</h4>
                     <p class="text-xs text-slate-500 mb-4">인생의 가치와 함께 기록된 위트 있는 동반 영수증입니다.</p>
 
-                    <!-- Receipt Board Simulation -->
                     <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 font-mono text-xs text-slate-700 shadow-inner">
                         <div class="text-center pb-2 border-b border-dashed border-slate-300">
                             <span class="font-black text-sm tracking-widest text-royalBlue">PALIN HERITAGE RECEIPT</span>
@@ -521,7 +515,6 @@
                         </div>
                     </div>
 
-                    <!-- Download/Share Button -->
                     <button onclick="downloadReceipt()" class="w-full mt-3 bg-slate-900 hover:bg-black text-white font-bold py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
                         <i class="fa-solid fa-download"></i>
                         영수증 이미지 다운로드 & 인스타 공유
@@ -529,10 +522,72 @@
                 </div>
             </div>
 
-            <!-- ================= TAB CONTENT 4: 팰린클럽 & 정기구독 ================= -->
+            <!-- ================= TAB CONTENT 4: 팰린 가이드 (정보 탭 - 업데이트됨) ================= -->
+            <div id="tab-guide" class="tab-content px-4 hidden space-y-4">
+                <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
+                    <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold">Palin Health Guide</span>
+                    <h3 class="font-sans text-lg font-bold text-royalBlue mt-2 mb-1">신체 부위별 노화 시그널</h3>
+                    <p class="text-xs text-slate-500 mb-4">고양이 그림의 반짝이는 부위를 클릭하여 노화 증상과 정밀 케어법을 확인하세요.</p>
+                    
+                    <!-- Interactive Cat Anatomical Map Simulation -->
+                    <div class="relative w-full aspect-[4/3] bg-gradient-to-b from-slate-950 to-royalDark rounded-xl overflow-hidden border border-slate-800 p-2 flex items-center justify-center">
+                        
+                        <!-- High-contrast White Cat Silhouette stood out beautifully, flipped horizontally so head is on the right -->
+                        <div class="relative w-64 h-48 flex items-center justify-center text-white/90 drop-shadow-[0_0_15px_rgba(255,255,255,0.4)] select-none transform scale-x-[-1]">
+                            <i class="fa-solid fa-cat text-[140px]"></i>
+                        </div>
+
+                        <!-- Hotspot Pin 1: Eyes (Now at top-right face position) -->
+                        <button onclick="openAnatomyModal('eyes')" class="absolute top-[26%] left-[68%] w-5 h-5 bg-royalGold text-white rounded-full flex items-center justify-center font-bold text-[10px] shadow-lg pulse-gold border border-white z-10">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </button>
+                        <span class="absolute top-[18%] left-[66%] text-[9px] text-royalGoldLight font-bold bg-royalDark/80 px-1.5 py-0.5 rounded border border-royalGold/20 pointer-events-none">눈</span>
+
+                        <!-- Hotspot Pin 2: Skin/Coat -->
+                        <button onclick="openAnatomyModal('skin')" class="absolute top-[32%] left-[38%] w-5 h-5 bg-royalGold text-white rounded-full flex items-center justify-center font-bold text-[10px] shadow-lg pulse-gold border border-white z-10">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </button>
+                        <span class="absolute top-[25%] left-[34%] text-[9px] text-royalGoldLight font-bold bg-royalDark/80 px-1.5 py-0.5 rounded border border-royalGold/20 pointer-events-none">피모</span>
+
+                        <!-- Hotspot Pin 3: Kidney (Slightly right & up from joints) -->
+                        <button onclick="openAnatomyModal('kidney')" class="absolute top-[48%] left-[42%] w-5 h-5 bg-royalGold text-white rounded-full flex items-center justify-center font-bold text-[10px] shadow-lg pulse-gold border border-white z-10">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </button>
+                        <span class="absolute top-[41%] left-[41%] text-[9px] text-royalGoldLight font-bold bg-royalDark/80 px-1.5 py-0.5 rounded border border-royalGold/20 pointer-events-none">신장 (레날)</span>
+
+                        <!-- Hotspot Pin 4: Joints (Refined further down on hind leg) -->
+                        <button onclick="openAnatomyModal('joints')" class="absolute top-[72%] left-[30%] w-5 h-5 bg-royalGold text-white rounded-full flex items-center justify-center font-bold text-[10px] shadow-lg pulse-gold border border-white z-10">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </button>
+                        <span class="absolute top-[78%] left-[26%] text-[9px] text-royalGoldLight font-bold bg-royalDark/80 px-1.5 py-0.5 rounded border border-royalGold/20 pointer-events-none">관절 (모빌리티)</span>
+
+                        <!-- Hotspot Pin 5: Digestive (GI) (Slightly left and down) -->
+                        <button onclick="openAnatomyModal('gi')" class="absolute top-[58%] left-[54%] w-5 h-5 bg-royalGold text-white rounded-full flex items-center justify-center font-bold text-[10px] shadow-lg pulse-gold border border-white z-10">
+                            <span class="w-1.5 h-1.5 bg-white rounded-full"></span>
+                        </button>
+                        <span class="absolute top-[64%] left-[54%] text-[9px] text-royalGoldLight font-bold bg-royalDark/80 px-1.5 py-0.5 rounded border border-royalGold/20 pointer-events-none">소화기 (GI)</span>
+                    </div>
+
+                    <div class="mt-4 grid grid-cols-2 gap-2 text-xs">
+                        <button onclick="openAnatomyModal('kidney')" class="bg-slate-50 border border-slate-100 p-2.5 rounded-xl font-medium text-left hover:bg-royalGold/5 flex justify-between items-center">
+                            <span>🐱 신장 (숙명의 레날)</span> <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </button>
+                        <button onclick="openAnatomyModal('joints')" class="bg-slate-50 border border-slate-100 p-2.5 rounded-xl font-medium text-left hover:bg-royalGold/5 flex justify-between items-center">
+                            <span>🦴 관절 및 활동성</span> <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </button>
+                        <button onclick="openAnatomyModal('eyes')" class="bg-slate-50 border border-slate-100 p-2.5 rounded-xl font-medium text-left hover:bg-royalGold/5 flex justify-between items-center">
+                            <span>👁️ 눈 및 인지기능</span> <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </button>
+                        <button onclick="openAnatomyModal('skin')" class="bg-slate-50 border border-slate-100 p-2.5 rounded-xl font-medium text-left hover:bg-royalGold/5 flex justify-between items-center">
+                            <span>✨ 피모 및 윤기감소</span> <i class="fa-solid fa-chevron-right text-[10px] text-slate-400"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= TAB CONTENT 5: 팰린클럽 & 정기구독 ================= -->
             <div id="tab-club" class="tab-content px-4 hidden space-y-4">
                 
-                <!-- Subscription Card -->
                 <div class="bg-gradient-to-r from-royalBlue to-royalDark text-white rounded-2xl p-4 shadow-md border border-royalGold/30">
                     <div class="flex justify-between items-center mb-3">
                         <span class="text-[10px] bg-royalGold text-royalDark font-bold px-2 py-0.5 rounded-full">ACTIVE SUBSCRIBER</span>
@@ -556,14 +611,12 @@
                     </div>
                 </div>
 
-                <!-- Weekly Mission Tracker -->
                 <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
                     <span class="text-[10px] bg-royalBlue/10 text-royalBlue px-2 py-0.5 rounded-full font-bold">Weekly Quest</span>
                     <h3 class="font-sans text-base font-bold text-royalBlue mt-2 mb-1">금주의 케어 챌린지</h3>
                     <p class="text-xs text-slate-500 mb-4">한 알의 변화로 만드는 기적. 미션을 완수하면 적립금을 지급합니다.</p>
 
                     <div class="space-y-3">
-                        <!-- Quest 1 -->
                         <div id="quest-1" class="flex justify-between items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50">
                             <div class="flex items-center gap-2">
                                 <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
@@ -575,7 +628,6 @@
                             <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full">지급완료</span>
                         </div>
 
-                        <!-- Quest 2 -->
                         <div id="quest-2" class="flex justify-between items-center p-3 rounded-xl border border-slate-100 bg-slate-50/50">
                             <div class="flex items-center gap-2">
                                 <i class="fa-solid fa-circle-check text-emerald-500 text-lg"></i>
@@ -587,7 +639,6 @@
                             <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded-full">지급완료</span>
                         </div>
 
-                        <!-- Quest 3 (Interactive) -->
                         <div id="quest-3" class="flex justify-between items-center p-3 rounded-xl border border-royalGold/20 bg-royalGold/5">
                             <div class="flex items-center gap-2">
                                 <i id="quest-3-icon" class="fa-regular fa-circle text-slate-400 text-lg"></i>
@@ -601,13 +652,11 @@
                     </div>
                 </div>
 
-                <!-- Stray Shelter Donation Tracker -->
                 <div class="bg-rose-50 rounded-2xl p-4 shadow-sm border border-rose-100 text-center">
                     <span class="text-[10px] bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full font-bold inline-block">Value Sharing</span>
                     <h4 class="font-sans text-sm font-bold text-rose-950 mt-2 mb-1">노령 유기묘를 위한 선한 동행</h4>
                     <p class="text-[11px] text-rose-800 mb-3">집사님의 사료 전환 및 미션 성과가 길거리 노령묘의 정밀 영양 후원으로 직접 연결됩니다.</p>
                     
-                    <!-- Kibble Donation Counter -->
                     <div class="flex items-center justify-center gap-2 text-rose-600 mb-3">
                         <i class="fa-solid fa-heart pulse-gold text-2xl"></i>
                         <span id="donation-counter" class="font-sans text-xl font-bold tracking-tight">1,429,800 g</span>
@@ -624,25 +673,28 @@
 
         </main>
 
-        <!-- Premium Bottom Navigation Bar (MZ Aesthetic Style) -->
-        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 py-2 flex justify-around items-center z-50">
-            <button onclick="switchTab('grad')" id="btn-tab-grad" class="nav-btn flex flex-col items-center gap-1.5 text-royalBlue">
-                <i class="fa-solid fa-house text-lg transition-transform hover:scale-110"></i>
-                <span class="text-[9px] font-bold">홈</span>
+        <!-- Premium Bottom Navigation Bar (MZ Aesthetic Style with Added Information Tab) -->
+        <nav class="absolute bottom-0 left-0 right-0 bg-white border-t border-slate-100 shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-1 py-2 flex justify-around items-center z-50">
+            <button onclick="switchTab('grad')" id="btn-tab-grad" class="nav-btn flex flex-col items-center gap-1.5 text-royalBlue flex-1">
+                <i class="fa-solid fa-house text-base transition-transform hover:scale-110"></i>
+                <span class="text-[8.5px] font-bold">홈</span>
             </button>
-            <button onclick="switchTab('log')" id="btn-tab-log" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400">
-                <i class="fa-solid fa-clock-rotate-left text-lg transition-transform hover:scale-110"></i>
-                <span class="text-[9px] font-bold">7초 로그</span>
+            <button onclick="switchTab('log')" id="btn-tab-log" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 flex-1">
+                <i class="fa-solid fa-clock-rotate-left text-base transition-transform hover:scale-110"></i>
+                <span class="text-[8.5px] font-bold">7초 로그</span>
             </button>
-            <button onclick="switchTab('report')" id="btn-tab-report" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 relative">
-                <div class="absolute -top-3 w-10 h-10 bg-royalBlue text-white border-4 border-white rounded-full flex items-center justify-center shadow-md">
-                    <i class="fa-solid fa-award text-sm"></i>
-                </div>
-                <span class="text-[9px] font-bold mt-6">헤리티지 카드</span>
+            <button onclick="switchTab('report')" id="btn-tab-report" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 flex-1">
+                <i class="fa-solid fa-award text-base transition-transform hover:scale-110"></i>
+                <span class="text-[8.5px] font-bold">헤리티지</span>
             </button>
-            <button onclick="switchTab('club')" id="btn-tab-club" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400">
-                <i class="fa-solid fa-repeat text-lg transition-transform hover:scale-110"></i>
-                <span class="text-[9px] font-bold">팰린클럽</span>
+            <!-- SENSORY GUIDE TAB -->
+            <button onclick="switchTab('guide')" id="btn-tab-guide" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 flex-1">
+                <i class="fa-solid fa-kit-medical text-base transition-transform hover:scale-110"></i>
+                <span class="text-[8.5px] font-bold">팰린 가이드</span>
+            </button>
+            <button onclick="switchTab('club')" id="btn-tab-club" class="nav-btn flex flex-col items-center gap-1.5 text-slate-400 flex-1">
+                <i class="fa-solid fa-repeat text-base transition-transform hover:scale-110"></i>
+                <span class="text-[8.5px] font-bold">팰린클럽</span>
             </button>
         </nav>
 
@@ -652,7 +704,49 @@
             <p id="toast-message" class="text-xs font-bold leading-tight">임시 알림 메시지입니다.</p>
         </div>
 
-        <!-- Onboarding & Profile Edit Modal -->
+        <!-- ADDITIONAL POPUP PAGE: Medical Anatomy Modal -->
+        <div id="anatomy-modal" class="hidden absolute inset-0 bg-black/75 z-50 flex items-end justify-center transition-opacity">
+            <div class="bg-creamPaper rounded-t-3xl w-full p-5 space-y-4 max-h-[85%] overflow-y-auto border-t-4 border-royalGold text-royalDark">
+                <div class="flex justify-between items-center border-b border-royalBlue/10 pb-3">
+                    <div class="flex items-center gap-2">
+                        <span id="anatomy-modal-icon" class="text-lg">👁️</span>
+                        <h3 id="anatomy-modal-title" class="font-sans text-base font-extrabold text-royalBlue">눈 가이드</h3>
+                    </div>
+                    <button onclick="closeAnatomyModal()" class="text-slate-400 hover:text-slate-600 bg-slate-100 p-1.5 rounded-full"><i class="fa-solid fa-xmark text-sm"></i></button>
+                </div>
+                
+                <div class="space-y-3.5 text-xs">
+                    <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                        <span class="text-[9px] font-black text-royalGold uppercase block mb-1">노화 발생 증상</span>
+                        <p id="anatomy-symptoms" class="text-slate-700 font-medium leading-relaxed">증상 설명란</p>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                        <span class="text-[9px] font-black text-royalGold uppercase block mb-1">유전적 호발 품종</span>
+                        <p id="anatomy-breeds" class="text-slate-700 font-bold">호발 품종</p>
+                    </div>
+
+                    <div class="bg-white p-3 rounded-xl border border-slate-100 shadow-sm">
+                        <span class="text-[9px] font-black text-royalGold uppercase block mb-1">정밀 예방 관리법</span>
+                        <p id="anatomy-care" class="text-slate-700 font-medium leading-relaxed">케어 가이드</p>
+                    </div>
+
+                    <div class="bg-royalBlue text-white p-4 rounded-xl shadow-md border border-royalGold/30 flex items-center justify-between gap-3">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-white/10 p-2 rounded-lg border border-white/10">
+                                <i class="fa-solid fa-mortar-pestle text-xl text-royalGold"></i>
+                            </div>
+                            <div>
+                                <span class="text-[9px] text-royalGoldLight font-bold uppercase block">RECOMMENDED DIET</span>
+                                <h4 id="anatomy-product" class="font-sans font-extrabold text-white text-sm">로얄팰린 레전드 브레인</h4>
+                            </div>
+                        </div>
+                        <button onclick="quickSelectProduct()" class="bg-royalGold text-royalDark font-bold px-3 py-1.5 rounded-lg text-[10px] hover:bg-royalGoldLight transition-all">식단매칭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="profile-edit-modal" class="hidden absolute inset-0 bg-black/60 z-50 flex items-end justify-center">
             <div class="bg-white rounded-t-3xl w-full p-6 space-y-4 max-h-[85%] overflow-y-auto">
                 <div class="flex justify-between items-center border-b border-slate-100 pb-3">
@@ -716,6 +810,50 @@
             logCompletedToday: false,
             relationChecks: [false, false, false, false, false],
             hasDonatedToday: false
+        };
+
+        // Veterinary Anatomy Database for Dynamic Popups
+        const anatomyDatabase = {
+            eyes: {
+                icon: '👁️',
+                title: '눈 및 인지기능 노화 가이드',
+                symptoms: '핵정화(수정체 혼탁)로 인해 시야가 흐려지며 수면 패턴의 변화, 허공 응시, 이유 없는 울음 등의 인지장애증후군(CDS)이 유발될 수 있습니다.',
+                breeds: '샴, 페르시안, 버미즈 및 11세 이상의 모든 노령묘 품종',
+                care: '항산화 복합체(비타민E, C, 루테인, 타우린)가 다량 함유된 식단을 급여하고 밤새 미세 야간 조명을 켜주어 공간 지각 스트레스를 경감시킵니다.',
+                product: '로얄팰린 레전드 브레인'
+            },
+            skin: {
+                icon: '✨',
+                title: '피모 및 윤기감소 케어 가이드',
+                symptoms: '나이가 듦에 따라 그루밍 횟수가 감소하고 피부 피지선 활력이 저하되어 체모의 윤기가 줄어들며, 피부 장벽 약화로 비듬 및 극심한 건조증이 발병합니다.',
+                breeds: '스프링스, 랙돌, 메인쿤 및 장모종 계열의 시니어 묘',
+                care: '오메가3(EPA/DHA) 및 오메가6 지방산, 특수 아미노산 포뮬러를 집중 공급하여 손상된 피부 장벽을 물리적으로 재건하고 혈행을 개선합니다.',
+                product: '로얄팰린 빈티지 헤어'
+            },
+            kidney: {
+                icon: '🐱',
+                title: '신장(레날) 여과 부하 관리 가이드',
+                symptoms: '고양이의 숙명인 만성 신부전(CKD)은 네프론의 파괴로 시작됩니다. 음수량 급증(다뇨/다갈) 및 갑작스러운 체중 감소가 초기 잠행성 신호입니다.',
+                breeds: '페르시안, 아비시니안, 스코티시 폴드 (7세 이상 호발율 급증)',
+                care: '신장 혈관 부하를 가중시키는 혈중 인(P) 함량을 0.1% 수준으로 과학적으로 제어하고, 고품질의 제한된 단백질 식단 구성을 최우선으로 해야 합니다.',
+                product: '로얄팰린 마스터 레날 에디션'
+            },
+            joints: {
+                icon: '🦴',
+                title: '관절 및 모빌리티 약화 가이드',
+                symptoms: '퇴행성 관절염(OA)으로 고통을 겪으나 고양이는 아픈 티를 내지 않습니다. 캣타워 점프 망설임, 무기력증, 유난히 느려진 거동으로 나타납니다.',
+                breeds: '스코티시 폴드(골이형성증 소인), 메인쿤, 먼치킨',
+                care: '연골 기질 성분인 글루코사민, 콘드로이틴 및 초록입홍합 성분을 복합 처방하여 관절 연골 마모를 방지하고 신체 활동력을 유지시킵니다.',
+                product: '로얄팰린 베테랑 조인트'
+            },
+            gi: {
+                icon: '⚙️',
+                title: '소화기(GI) 및 장 건강 가이드',
+                symptoms: '노화가 진행되면서 유익균 수가 급감하고 췌장 소화 효소 분비량이 크게 감소합니다. 이로 인해 만성 소화불량, 묽은 변, 영양 흡수율 불량이 호발합니다.',
+                breeds: '뱅갈, 러시안 블루, 노르웨이 숲 및 소화관이 민감한 노령묘',
+                care: '소화 흡수율이 90% 이상인 L.I.P. 엄선 고인성 단백질과 차전자피, 프리바이오틱스 복합 식이섬유를 배합하여 장내 총 유익균 균형을 유도합니다.',
+                product: '로얄팰린 마스터 GI 에디션'
+            }
         };
 
         // Static configuration mapping Age -> Simplified clean ranks (Namjak, Jajak, Baekjak, Gongjak)
@@ -798,6 +936,36 @@
             }, 3000);
         }
 
+        // Interactive Additional Popup Modal Logic (Anatomy Map)
+        function openAnatomyModal(partKey) {
+            const data = anatomyDatabase[partKey];
+            if (!data) return;
+
+            document.getElementById('anatomy-modal-icon').innerText = data.icon;
+            document.getElementById('anatomy-modal-title').innerText = data.title;
+            document.getElementById('anatomy-symptoms').innerText = data.symptoms;
+            document.getElementById('anatomy-breeds').innerText = data.breeds;
+            document.getElementById('anatomy-care').innerText = data.care;
+            document.getElementById('anatomy-product').innerText = data.product;
+
+            const modal = document.getElementById('anatomy-modal');
+            modal.classList.remove('hidden');
+            modal.style.opacity = '1';
+        }
+
+        function closeAnatomyModal() {
+            const modal = document.getElementById('anatomy-modal');
+            modal.classList.add('hidden');
+        }
+
+        function quickSelectProduct() {
+            const targetProduct = document.getElementById('anatomy-product').innerText;
+            closeAnatomyModal();
+            switchTab('club');
+            document.getElementById('sub-title').innerText = targetProduct;
+            showToast(`${targetProduct} 식단 매칭에 성공했습니다. 팰린클럽에서 확인하세요.`, 'fa-arrows-spin');
+        }
+
         // Feature 1: AI Slideshow generator mockup
         let isSlidePlaying = false;
         let slideTimer = null;
@@ -837,6 +1005,15 @@
             }, 2000);
         }
 
+        function shareToInstagram() {
+            copyTextLegacy("https://royalcanin.co.kr/palin-heritage");
+            showToast("인스타그램 스토리 전용 링크가 클립보드에 복사되었습니다. 스토리에서 편하게 붙여넣으세요!", "fa-square-check");
+        }
+
+        function shareToKakao() {
+            showToast("친구의 카카오톡으로 자랑을 보냈습니다!", "fa-paper-plane");
+        }
+
         // Custom clipboard copy helper (Safeguard-compliant execution)
         function copyTextLegacy(text) {
             const tempInput = document.createElement("input");
@@ -847,15 +1024,6 @@
             tempInput.select();
             document.execCommand("copy");
             document.body.removeChild(tempInput);
-        }
-
-        function shareToInstagram() {
-            copyTextLegacy("https://royalcanin.co.kr/palin-heritage");
-            showToast("인스타그램 스토리 전용 링크가 클립보드에 복사되었습니다. 스토리에서 편하게 붙여넣으세요!", "fa-square-check");
-        }
-
-        function shareToKakao() {
-            showToast("친구의 카카오톡으로 자랑을 보냈습니다!", "fa-paper-plane");
         }
 
         // Feature 2: 7-Second Sensory Check Logic
@@ -925,7 +1093,7 @@
             // Every logged item earns 1P
             appState.carePoints += checkedCount * 1;
             updateUIFromState();
-            showToast(`오늘의 7초 교감 완료! ${checkedCount * 1}P가 추가되었습니다.`, "fa-gift");
+            showToast("오늘의 7초 교감이 저장되었습니다.", "fa-gift");
             
             // Auto transition to the Heritage report tab
             setTimeout(() => {
@@ -1010,16 +1178,14 @@
             document.getElementById('overlay-name').innerText = appState.catName;
         }
 
-        // Download receipt simulation (Toast message simplified based on feedback)
         function downloadReceipt() {
             showToast("영수증 이미지를 성공적으로 저장했습니다.", "fa-file-arrow-down");
         }
 
-        // Complete Quest 3 (Earns 1P based on feedback)
+        // Complete Quest 3
         function completeQuest3() {
             const btn = document.getElementById('quest-3-btn');
             const icon = document.getElementById('quest-3-icon');
-            const card = document.getElementById('quest-3');
             
             icon.className = "fa-solid fa-circle-check text-emerald-500 text-lg";
             btn.innerText = "지급완료";
